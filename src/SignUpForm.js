@@ -73,13 +73,16 @@ const SignUpForm = () => {
                 message: "Please Enter Your Phone Number",
               },
 
-              { min: 10, message: "Enter 10 digit number" },
               {
-                validator: (_, value) =>
-                  value && value.includes("1")
-                    ? Promise.resolve()
-                    : Promise.reject("Enter only numbers"),
+                pattern: /^\d{10}$/,
+                message: "Please enter a valid 10-digit phone number",
               },
+              // {
+              //   validator: (_, value) =>
+              //     value && value.includes("1")
+              //       ? Promise.resolve()
+              //       : Promise.reject("Enter only numbers"),
+              // },
             ]}
             hasFeedback
           >
@@ -135,14 +138,23 @@ const SignUpForm = () => {
             rules={[
               {
                 required: true,
+                message: "Please Enter Your Password",
               },
-              { min: 6 },
               {
-                validator: (_, value) =>
-                  value && value.includes("A")
-                    ? Promise.resolve()
-                    : Promise.reject("Password must have atleast 1 alphabet."),
+                min: 6,
+                message: "Password must be at least 6 characters long!",
               },
+              {
+                pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
+                message:
+                  "Password must contain at least one letter and one number, and no special characters!",
+              },
+              // {
+              //   validator: (_, value) =>
+              //     value && value.includes("A")
+              //       ? Promise.resolve()
+              //       : Promise.reject("Password must have atleast 1 alphabet."),
+              // },
             ]}
             hasFeedback
           >

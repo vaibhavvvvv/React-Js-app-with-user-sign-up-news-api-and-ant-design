@@ -41,3 +41,11 @@
   font-weight: bold;
   padding: 4px;
 }
+
+.sign-up-form table {
+  backdrop-filter: blur(10px);
+  background-color: "transparent";
+  box-shadow: 0 8px 32px 0 var(--table-box-shadow-color);
+  border-radius: 10px;
+  padding: 20px;
+}
